@@ -2,7 +2,7 @@ import axios from "axios"
 import store from "./store"
 import router from "./router"
  var GetMsg=axios.create({
-     timeout:5000,
+     timeout:5000000,
      headers:{ 'Content-Type': 'application/json;charset=UTF-8' },
      withCredentials: true,
  });
@@ -35,24 +35,24 @@ GetMsg.interceptors.request.use(
 
  export default{
      GetMyInfo(UserName){
-       return GetMsg.get("http://localhost:3000/GetMyInfo",{params:{UserName}});
+       return GetMsg.get("http://47.97.190.96:3000/GetMyInfo",{params:{UserName}});
      },
      GetOtherInfo(UserName,OtherUserName){
-       return GetMsg.get("http://localhost:3000/GetOtherInfo",{params:{UserName,OtherUserName}});
+       return GetMsg.get("http://47.97.190.96:3000/GetOtherInfo",{params:{UserName,OtherUserName}});
      },
      GetMyPageInfo(UserName){
-       return GetMsg.get("http://localhost:3000/GetMyPageInfo",{params:{UserName}});
+       return GetMsg.get("http://47.97.190.96:3000/GetMyPageInfo",{params:{UserName}});
      },
      GetFreshWeibo(){
-      return GetMsg.get("http://localhost:3000/GetFreshWeibo");
+      return GetMsg.get("http://47.97.190.96:3000/GetFreshWeibo");
     },
     WeiboDetail(UserName,WeiboId,MyUserName){
-      return GetMsg.get("http://localhost:3000/WeiboDetail",{params:{UserName,WeiboId,MyUserName}});
+      return GetMsg.get("http://47.97.190.96:3000/WeiboDetail",{params:{UserName,WeiboId,MyUserName}});
     },
     SearchWeibo(Key){
-      return GetMsg.get("http://localhost:3000/SearchWeibo",{params:{Key}});
+      return GetMsg.get("http://47.97.190.96:3000/SearchWeibo",{params:{Key}});
     }
     // GetFreshWeibo(){
-    //   return GetMsg.get("http://localhost:3000/GetFreshWeibo");
+    //   return GetMsg.get("http://47.97.190.96:3000/GetFreshWeibo");
     // }
  }

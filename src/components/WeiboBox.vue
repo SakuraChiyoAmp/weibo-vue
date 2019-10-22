@@ -6,7 +6,7 @@
     <div class="grid-content bg-purple">
           <div class="head">
              <div class="headImage">
-               <img :src="HeadImage" alt="" style="width:100%:height:100%">
+               <el-image style="width: 100%; height: 100%" :src="this.HeadImage" fit="fit"></el-image>
               </div>
               <div>{{UserName}}</div>
           </div>
@@ -39,7 +39,7 @@
   export default {
      data() {
                return {
-                 photo:["http://localhost:3000/test.jpg","http://localhost:3000/test.jpg","http://localhost:3000/test.jpg","http://localhost:3000/test.jpg","http://localhost:3000/test.jpg","http://localhost:3000/test.jpg",],
+                 photo:["http://47.97.190.96:3000/test.jpg","http://47.97.190.96:3000/test.jpg","http://47.97.190.96:3000/test.jpg","http://47.97.190.96:3000/test.jpg","http://47.97.190.96:3000/test.jpg","http://47.97.190.96:3000/test.jpg",],
             
                }
        },

@@ -1,7 +1,7 @@
 import axios from "axios"
 import store from "./store"
  var PostMsg=axios.create({
-     timeout:5000,
+     timeout:5000000,
      headers:{ 'Content-Type': 'application/json;charset=UTF-8' },
      withCredentials: true,
  });
@@ -31,19 +31,19 @@ PostMsg.interceptors.response.use(response=>{
 
  export default{
      Login(UserName,Password){
-       return PostMsg.post("http://localhost:3000/Login",{UserName:UserName,Password:Password});
+       return PostMsg.post("http://47.97.190.96:3000/Login",{UserName:UserName,Password:Password});
      },
      Comment(UserName,Content,Id){
-      return PostMsg.post("http://localhost:3000/Comment",{UserName:UserName,Content:Content,Id:Id});
+      return PostMsg.post("http://47.97.190.96:3000/Comment",{UserName:UserName,Content:Content,Id:Id});
      },
      Focus(UserName,OtherUserName,FocusFlag){
-       return PostMsg.post("http://localhost:3000/Focus",{UserName:UserName,OtherUserName:OtherUserName,FocusFlag:FocusFlag});
+       return PostMsg.post("http://47.97.190.96:3000/Focus",{UserName:UserName,OtherUserName:OtherUserName,FocusFlag:FocusFlag});
      },
      ZanFlagChange(UserName,Id,DianzanFlag){
-       return  PostMsg.post("http://localhost:3000/Dianzan",{UserName:UserName,Id:Id,DianzanFlag:DianzanFlag});
+       return  PostMsg.post("http://47.97.190.96:3000/Dianzan",{UserName:UserName,Id:Id,DianzanFlag:DianzanFlag});
      },
      LogOut(UserName){
-      return PostMsg.post("http://localhost:3000/LogOut",{UserName:UserName});
+      return PostMsg.post("http://47.97.190.96:3000/LogOut",{UserName:UserName});
      }
 
  }

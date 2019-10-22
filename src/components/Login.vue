@@ -75,10 +75,10 @@ import PostMsg from "../PostInterface"
                console.log(result);
                console.log(result.data); 
                if (result.data.state=="failed"){
-                 alert("该用户已经登录或者密码错误!")
+                 alert("该用户已经登录或者密码错误或者还没注册!")
                }else{
                  this.$store.dispatch('UserLogin', result.data.token);
-                 this.$store.dispatch('UserName', result.data.username);
+                 this.$store.dispatch('UserName', this.ruleForm.username);
                  this.$router.push("/MainPage");
                }
             })

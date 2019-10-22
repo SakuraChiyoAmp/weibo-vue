@@ -52,11 +52,11 @@
             console.log(fd.getAll("avatar"));
         const data={UserName:this.$store.state.UserName,Content:this.textarea};
       this.$axios({
-        url:"http://localhost:3000/PushWeibo",
+        url:"http://47.97.190.96:3000/PushWeibo",
         method:"post",
         data:fd,
         params:data,
-      }).then(result=>{
+      }).then(result=>{ 
         alert(result.data.state);
         this.textarea="";
         this.$refs.upload.uploadFiles=[];

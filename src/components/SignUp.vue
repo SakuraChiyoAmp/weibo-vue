@@ -102,6 +102,10 @@
           if (valid) {
             // alert('submit!');
              const fileArray = this.$refs.upload.uploadFiles;
+             if (fileArray.length==0){
+                 alert("记得上传头像哦");
+                 return false;
+             }
              if (fileArray.length>1){
                alert("只可上传一张头像");
                return false;
@@ -115,7 +119,7 @@
       // console.log(fd.getAll("avatar"));
       const data=this.ruleForm;
       this.$axios({
-        url:"http://localhost:3000/SignUp",
+        url:"http://47.97.190.96:3000/SignUp",
         method:"post",
         data:fd,
         params:data,
@@ -134,6 +138,7 @@
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
+          this.$refs.upload.uploadFiles.length=0;
       }
     }
   }

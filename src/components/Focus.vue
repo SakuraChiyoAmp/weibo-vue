@@ -61,7 +61,7 @@ import PostMsg from "../PostInterface"
     },
     watch:{
       Flag: function(newValue, oldValue){
-              alert(newValue);
+              // alert(newValue);
               PostMsg.Focus(this.$store.state.UserName,this.UserName,newValue);
       }
     }

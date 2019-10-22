@@ -27,7 +27,7 @@
         console.log(file);
       },
       UpLoad(){
-        this.$axios.post("http://localhost:3000/ImageUpload",{
+        this.$axios.post("http://47.97.190.96:3000/ImageUpload",{
            name:"testName",
            password:"testPassword",
            fileList:this.fileList

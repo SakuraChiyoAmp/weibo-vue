@@ -11,9 +11,11 @@
       <div class="grid-content bg-purple">
           <div class="head">
              <div class="headImage">
-               <img :src="PageInfo.HeadImage" alt="">
+                <router-link :to="{path:'OtherPeoplePage',query:{UserName:this.$route.query.UserName}}">
+                <el-image style="width: 100%; height: 100%" :src="PageInfo.HeadImage" fit="fit"></el-image>
+                </router-link>
               </div>
-              <div>{{UserName}}</div>
+              <div>{{this.$route.query.UserName}}</div>
           </div>
     </div>
   </el-col>
@@ -51,9 +53,10 @@
         <div id="CommentContainer" v-for="(e,index) of PageInfo.CommentList" :key="index"> 
                  <div id="CommentList">
                         <div id="CommentList_Left">
-                          <router-link :to="{path:'OtherPeoplePage',query:{UserName:e.UserName}}">
+                          <router-link :to="{path:'OtherPeoplePage',query:{UserName:e.UserName}}" >
                                 <el-image style="width: 70px; height: 70px" :src="e.HeadImage" fit="fit"></el-image>
-                                 </router-link>
+                            </router-link>
+                    
                                 <div id="UserNameBox">{{e.UserName}}</div>                         
                        </div>
                        <div id="CommentList_Right">{{e.Comment}}</div>
@@ -72,16 +75,17 @@ import userinfo from "./UserInfo"
 import dianzan from "./Dianzan"
 import GetMsg from "../GetInterface"
 import PostMsg from "../PostInterface"
+import store from "../store.js"
 export default {
    components:{
     headerbar,
     searchLeft,
      userinfo,
-     dianzan     
+     dianzan   
    }, 
    data() {
     return {
-          photo:["http://localhost:3000/test.jpg","http://localhost:3000/test.jpg",],   
+          photo:["http://47.97.190.96:3000/test.jpg","http://47.97.190.96:3000/test.jpg",],   
           formInline: {
           user: '',
           region: ''
@@ -95,6 +99,8 @@ export default {
         Content:"",
         CommentList:[],
         ImageList:[],
+        // name:"",
+       
       }
     },
          methods: {
@@ -112,13 +118,29 @@ export default {
            this.textarea="";
         }
       },
+      GetI:async function(){
+         await       GetMsg.WeiboDetail(this.$route.query.UserName,this.$route.query.WeiboId,this.$store.state.UserName).then(result=>{
+             this.PageInfo=result.data;   
+      });
 
+           await   GetMsg.GetMyInfo(this.$store.state.UserName).then(result=>{
+            this.name=result.data.UserName;
+        })
+      }
     },
     created(){ 
-      GetMsg.WeiboDetail(this.$route.query.UserName,this.$route.query.WeiboId,this.$store.state.UserName).then(result=>{
-             this.PageInfo=result.data;   
-             console.log(this.PageInfo);   
-      })
+      // GetMsg.WeiboDetail(this.$route.query.UserName,this.$route.query.WeiboId,this.$store.state.UserName).then(result=>{
+      //        this.PageInfo=result.data;   
+      //        console.log(this.PageInfo);   
+      // }),
+      //         GetMsg.GetMyInfo(this.$store.state.UserName).then(result=>{
+      //       this.name=result.data.UserName;
+      //   })
+      this.GetI();
+      
+    },
+    watch: {
+ 
     },
 
 }

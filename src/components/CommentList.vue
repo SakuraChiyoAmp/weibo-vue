@@ -1,7 +1,7 @@
 <template>
      <div id="CommentList">
             <div id="CommentContainer">
-                   <el-image style="width: 50px; height: 50px" src="http://localhost:3000/test.jpg" fit="fit"></el-image>
+                   <el-image style="width: 50px; height: 50px" src="http://47.97.190.96:3000/test.jpg" fit="fit"></el-image>
               </div>
     </div>
 </template>

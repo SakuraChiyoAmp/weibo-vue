@@ -36,12 +36,12 @@ import router from "./router"
 
  export default{
      userRegister(data){
-       return instance.post("http://localhost:3000/regist",data);
+       return instance.post("http://47.97.190.96:3000/regist",data);
      },
      userLogin(data){
-       return instance.post("http://localhost:3000/regist",data);
+       return instance.post("http://47.97.190.96:3000/regist",data);
      },
      delUser(data){
-       return instance.post("http://localhost:3000/logout",data);
+       return instance.post("http://47.97.190.96:3000/logout",data);
      }
  }

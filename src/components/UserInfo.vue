@@ -6,7 +6,7 @@
 <el-row>
   <el-col :span="24"> 
     
-     <!-- <el-avatar src="http://localhost:3000/test.jpg"></el-avatar> -->
+     <!-- <el-avatar src="http://47.97.190.96:3000/test.jpg"></el-avatar> -->
      <el-avatar shape="square" :size="100"  fit="fill" :src="HeadImage"></el-avatar>
     
     </el-col>

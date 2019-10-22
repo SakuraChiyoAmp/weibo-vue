@@ -12,7 +12,7 @@
                 <el-image style="width: 100px; height: 100px" :src="HeadImage" fit="fit"></el-image>
                     <div>{{PageInfo.UserName}}</div>
                     <el-switch
-  v-model="PageInfo.FocusFlag"
+  v-model="FocusFlag"
   active-text="关注"
   inactive-text="取关">
 </el-switch>
@@ -72,17 +72,22 @@ export default {
      return {
        PageInfo:{},
        HeadImage:"",
+       FocusFlag:false,
      }
    },
    created(){
+     if (this.$store.state.UserName==this.$route.query.UserName){
+        this.$router.replace('/MyPage')
+     }
      GetMsg.GetOtherInfo(this.$store.state.UserName,this.$route.query.UserName).then(result=>{
        this.HeadImage=result.data.HeadImage;
-       this.PageInfo=result.data;     
+       this.FocusFlag=result.data.FocusFlag;
+       this.PageInfo=result.data; 
      })
    },
    watch:{
      FocusFlag:function(newValue,oldValue){
-       alert(newValue);
+       
        PostMsg.Focus(this.$store.state.UserName,this.$route.query.UserName,newValue).then(result=>{
          console.log(result);
        })

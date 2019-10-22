@@ -53,14 +53,14 @@
                 fd.append('avatar', fileArray[i].raw);            
             }
             // console.log(fd.getAll("avatar"));
-      // this.$axios.post("http://localhost:3000/ImageUpload",fd).then(res=>{
+      // this.$axios.post("http://47.97.190.96:3000/ImageUpload",fd).then(res=>{
       //   console.log(res);
       // }).catch(err=>{
       //   console.log(err);
       // });
         const data=this.formLabelAlign;
       this.$axios({
-        url:"http://localhost:3000/ImageUpload",
+        url:"http://47.97.190.96:3000/ImageUpload",
         method:"post",
         data:fd,
         params:data,

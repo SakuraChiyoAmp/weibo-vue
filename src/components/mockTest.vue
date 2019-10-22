@@ -3,7 +3,7 @@
    
      <div>{{userInfoMsg}}</div>
       <img :src="userInfoMsg.imageUrl" alt="" style="width:200px,height:200px">
-      <img src="http://localhost:3000/test.jpg" alt="">
+      <img src="http://47.97.190.96:3000/test.jpg" alt="">
      <button value="测试userInfoMsg" @click="testUerInfo()">测试userInfoMsg</button>
   </div>
 </template>
@@ -24,7 +24,7 @@
     },
     methods:{
           testUerInfo(){
-                 this.$axios.get("http://localhost:3000/testMock/userInfor").then(res=>{
+                 this.$axios.get("http://47.97.190.96:3000/testMock/userInfor").then(res=>{
                    window.console.log(res);
                     this.userInfoMsg.usrName=res.data.userName;
                     this.userInfoMsg.password=res.data.password;
